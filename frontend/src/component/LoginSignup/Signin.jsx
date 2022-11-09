@@ -18,10 +18,11 @@ function Signin() {
                     backgroundRepeat="no-repeat"
                     backgroundSize={'100% 600px'}
                 >
-                    <Box h='83vh' boxShadow='xl'  w='450px' bg='white' p='35px' textAlign={'left'} m='auto' display={'inline-block'} mt='90px' borderRadius='8px'>
-                        <Text color='#374968' fontWeight='semibold' fontSize='25px'>Sign In</Text>
+                    <Box h={{sm:'30vh', md:'48vh', lg:'83vh'}} boxShadow='xl'  w={['80%', '420px']} bg='white' p='35px' textAlign={'left'} m='auto' display={'inline-block'} mt='90px' borderRadius='8px'>
+                        <Text color='#374968' fontWeight='semibold' fontSize='25px'>Sign In</Text> 
                         <Input p='20px'  mt='25px' placeholder="Email address" />
                         <Input p='20px' mt='25px' placeholder="Password" />
+                       
                         <Flex mt='25px' fontSize='15px'>
                             <Box  _hover={{cursor:"pointer"}}  display={'inline-flex'} color='blackAlpha.700'>
                                 <Checkbox defaultChecked></Checkbox>
