@@ -12,7 +12,9 @@ const productSchema2 = new mongoose.Schema(
     item_left:{type: String,required: true},
     items_times: { type: String, required: true},
     favit_count: { type: Number, required: true},
-    free_ship: { type: String, required: true}
+    free_ship: { type: String, required: true},
+    sale:{type: String,required: true},
+    country: { type: String, required: true}
   },
   {
     versionKey: false,
