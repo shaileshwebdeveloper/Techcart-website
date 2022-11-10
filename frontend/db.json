@@ -1,0 +1,107 @@
+{
+    "products" : [{
+        "id"  : 1,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+         "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping",
+        "shipped" : "china", 
+        "date" : "2022-09-12",
+        "strike" : "₹ 1990",
+        "discount" : "14% off",
+        "sale" : "on"   
+    },
+    {   
+        "id"  : 2,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+        "ratings" : "2",
+        "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "delivery" : "Free Shipping"
+    },
+    {  "id"  : 3,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping",
+         "strike" : "₹ 1990",
+         "discount" : "14% off"
+    },
+    {
+        "id"  : 4,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "922.20",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping"
+    },
+    {
+        "id"  : 55,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+         "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping"
+    },
+    {   
+        "id"  : 66,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+        "ratings" : "2",
+        "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "delivery" : "Free Shipping"
+    },
+    {  "id"  :77,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping",
+         "strike" : "₹ 1990",
+         "discount" : "14% off"
+    },
+    {
+        "id"  : 88,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "922.20",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping"
+    },
+    {
+        "id"  : 99,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+         "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping"
+    },
+    {   
+        "id"  : 45,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+        "ratings" : "2",
+        "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "delivery" : "Free Shipping"
+    },
+    {  "id"  : 23,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "1000",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping",
+         "strike" : "₹ 1990",
+         "discount" : "14% off"
+    },
+    {
+        "id"  : 43,
+        "image" : "https://cdn.pixabay.com/photo/2015/10/05/17/09/minion-972908_960_720.jpg",
+        "price"  : "922.20",
+                 "title" : "1080-degree Rotating Mechanical Arm Universal",
+        "ratings" : "2",
+        "delivery" : "Free Shipping"
+    }  
+  ] 
+  }

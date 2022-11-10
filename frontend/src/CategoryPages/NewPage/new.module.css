@@ -1,0 +1,48 @@
+
+
+/* The ribbons */
+
+.ribbon{
+    width: 150px;
+    background: #fd6c1d;
+    position: absolute;
+    top: 15px;
+    left: -30px;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  /* Custom styles */
+  
+  .ribbon.sticky{
+    position: fixed;
+  }
+  
+  /* .ribbon.shadow{
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+  } */
+  
+  /* Different positions */
+  
+  
+  
+  .ribbon.topright{
+    top: 10px;
+    right: -40px;
+    left: auto;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    
+  }
+  
+  
+  
+  /* Colors */
+  
+  
+  .ribbon.blue{background: #fd6c1d;}
+  
