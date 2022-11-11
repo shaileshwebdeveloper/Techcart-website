@@ -1,40 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Text, Button } from "@chakra-ui/react";
 import CommonHeader from "./CommonHeader";
 import "../css/orderSummary.css";
 import CartItem from "./cartItem";
+import { Link } from "react-router-dom";
+
+const user = {
+  f_name: "",
+  l_name: "",
+  country: "",
+  zip: "",
+  state: "",
+  phone: "",
+  city: "",
+  add_1: "",
+  add_2: "",
+};
 
 const OrderSummaryPage = () => {
+  const [userData, setUserData] = useState(user);
+
+  const [ship,setShip] = useState(false);
+
+  const handleShip= (e)=>{
+    // e.preventDefault();
+    setShip(true);
+  }
+
+  console.log(ship)
+
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  // console.log(userData);
+
+  const handleForm = (e) => {
+    e.preventDefault();
+    // console.log(userData);
+    alert("Address has been saved successfully..")
+  };
+
+  // extra shipping charges
+  const extra = 4793.71;
+  const remote= 3104.09
+  const total= 1677.05
+
+  let shipping = 0
+  if(ship){
+    shipping = remote
+  }
+
+
   return (
     <div>
       <CommonHeader />
       <Box id="shipping_address">
-        <Text fontWeight={"medium"} fontSize={"22px"}>Shipping Address</Text>
+        <Text fontWeight={"medium"} fontSize={"22px"}>
+          Shipping Address
+        </Text>
         <br />
         <Box padding={"5px 15px 5px 15px"} bgColor={"pink.100"}>
           To ensure delivery and prevent delays, please make sure your complete
           address is in English.
         </Box>
         <Box>
-          <form className={"ship_form"}>
+          <form onSubmit={handleForm} className={"ship_form"}>
             <Box>
               <label>
                 <span>*</span>First Name:
               </label>
-              <input type="text" />
+              <input onChange={handleInput} name="f_name" type="text" />
             </Box>
             <Box>
               <label>
                 <span>*</span>Last Name:
               </label>
-              <input type="text" />
+              <input onChange={handleInput} name="l_name" type="text" />
             </Box>
             <Box>
               <label>
                 <span>*</span>Country/Region:
               </label>
-              <select id="country" name="country">
-                <option>India</option>
+              <select id="country" onChange={handleInput} name="country">
+                <option>Select Country --</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Aland Islands</option>
                 <option value="AL">Albania</option>
@@ -301,7 +352,8 @@ const OrderSummaryPage = () => {
               <label>
                 <span>*</span>State/Provience/County:
               </label>
-              <select name="statelist">
+              <select onChange={handleInput} name="state">
+                <option value="">Select State --</option>
                 <option value={"Andaman and Nicobar Islands"}>
                   Andaman and Nicobar Islands
                 </option>
@@ -347,19 +399,31 @@ const OrderSummaryPage = () => {
               <label>
                 <span>*</span>City:
               </label>
-              <input placeholder="Your City" type="text" />
+              <input
+                onChange={handleInput}
+                name="city"
+                placeholder="Your City"
+                type="text"
+              />
             </Box>
             <Box>
               <label>
                 <span>*</span>Zip/Postal Code:
               </label>
-              <input placeholder="Your ZIP/Postal" type="number" />
+              <input
+                onChange={handleInput}
+                name="zip"
+                placeholder="Your ZIP/Postal"
+                type="number"
+              />
             </Box>
             <Box>
               <label>
                 <span>*</span>Address line 1:
               </label>
               <input
+                onChange={handleInput}
+                name="add_1"
                 placeholder="Street Address, company name, P.O. box, c/o, etc"
                 type="text"
               />
@@ -369,6 +433,8 @@ const OrderSummaryPage = () => {
                 <span>*</span>Address line 2:
               </label>
               <input
+                onChange={handleInput}
+                name="add_2"
                 placeholder="Apartment, suite, unit, building, floor, etc (Optional)"
                 type="text"
               />
@@ -377,71 +443,116 @@ const OrderSummaryPage = () => {
               <label>
                 <span>*</span>Phone number:
               </label>
-              <input placeholder="Your phone number" type="number" />
+              <input
+                onChange={handleInput}
+                name="phone"
+                placeholder="Your phone number"
+                type="number"
+              />
             </Box>
             <Box>
               <input type="checkbox" />
               <Text>Use as default Address</Text>
             </Box>
-            <Box>
-              <Button>Save</Button>
-              <Button>Cancel</Button>
+            <Box display={"flex"}>
+              <input type="submit" value={"Save"} />
+              <input type="submit" value={"Cancel"} />
             </Box>
           </form>
-          <Text fontSize={"22px"} fontWeight={"bold"}>Product List</Text>
+          <Text fontSize={"22px"} fontWeight={"bold"}>
+            Product List
+          </Text>
           <br />
           <Box border={"1px solid silver"}>
-             <CartItem />
+            <CartItem />
           </Box>
           <br />
-          <Box >
+          <Box>
             <Text fontSize={"22px"} fontWeight={"bold"}>
-                Shipping & Delivery
+              Shipping & Delivery
             </Text>
           </Box>
-          <Box>
-            <br />
-            <Box paddingTop={"2%"} paddingBottom={"2%"} borderRadius={"5px"}  border={"1px solid silver"} display="flex" justifyContent={"space-evenly"}>
-                <Text color={"gray"}>Shipping Methods</Text>
-                <Text color={"gray"}>Estimated Shopping Time</Text>
-                <Text color={"gray"}>Shipping Cost</Text>
+          <br />
+          <Box border={"1px solid silver"} >
+            <Box
+             className="ship_del"
+            >
+              <Text color={"gray"}>Shipping Methods</Text>
+              <Text color={"gray"}>Estimated Shopping Time</Text>
+              <Text color={"gray"}>Shipping Cost</Text>
             </Box>
-            <Box bgColor={"gray.200"} paddingTop={"2%"} paddingBottom={"2%"}  border={"1px solid silver"} >
-                <Box alignItems={"center"} display="flex" marginLeft={"20px"}>
-                    <input type="checkbox" />
-                    <Text marginBottom={'10px'} marginLeft={"10px"}>Add Shipping Insurance to your order ℹ️ ₹ 115.76</Text>
-                </Box>
-                <Text fontSize={"14px"} marginLeft={"10px"}> <span color="red">*</span> Note: The time mentioned above are the shipping days by couriers, not including the order processing days by our warehouse.</Text>
+            <Box className="extra_chg">
+              <Box display={"flex"} gap={"10px"}>
+                <input  type="radio" />
+                <Text>Priority Line</Text>
+              </Box>
+              <Text>10 -20 business days</Text>
+              <Text fontWeight={"bold"}>Free Shipping</Text>
+            </Box>
+            <Box className="extra_chg">
+              <Box display={"flex"} gap={"10px"}>
+                <input checked={ship} onChange={handleShip}  type="radio" />
+                <Text >Expedited Shipping</Text>
+              </Box>
+              <Text>7 -18 business days</Text>
+              <Box>
+              <Text fontWeight={"bold"} textAlign={"right"}>{`₹ ${extra}`}</Text>
+              <Text color={"red.500"} fontWeight={"bold"}>{`₹ ${remote}`} Remote Fee included</Text>
+              </Box>
+            </Box>
+            <Box
+              bgColor={"gray.200"}
+              paddingTop={"2%"}
+              paddingBottom={"2%"}
+              border={"1px solid silver"}
+            >
+              <Box alignItems={"center"} display="flex" marginLeft={"20px"}>
+                <input type="checkbox" />
+                <Text marginBottom={"10px"} marginLeft={"10px"}>
+                  Add Shipping Insurance to your order ℹ️ ₹ 115.76
+                </Text>
+              </Box>
+              <Text color={"gray"} fontSize={"14px"} marginLeft={"10px"}>
+                
+                <span color="red">*</span> Note: The time mentioned above are
+                the shipping days by couriers, not including the order
+                processing days by our warehouse.
+              </Text>
             </Box>
           </Box>
         </Box>
         <br />
         <Box className="coupon_sec">
+          <Box>
+            <Text fontWeight={"bold"} color="gray">
+              Coupon:{" "}
+            </Text>
+            <br />
             <Box>
-                <Text fontWeight={"bold"} color="gray">Coupon: </Text>
-                <br />
-                <Box>
-                    <input placeholder="Please enter or choose your coupon code" type="text" />
-                    <Button>Apply</Button>
-                </Box>
+              <input
+                placeholder="Please enter or choose your coupon code"
+                type="text"
+              />
+              <Button>Apply</Button>
+            </Box>
+          </Box>
+          <Box>
+            <Box>
+              <span>Order SubTotal: </span>
+              <Text>{total}</Text>
             </Box>
             <Box>
-                <Box>
-                    <span>Order SubTotal: </span>
-                    <Text>1677.05</Text>
-                </Box>
-                <Box>
-                    <span>Shipping Cost: </span>
-                    <Text>0.00</Text>
-                </Box>
-                <Box>
-                    <span>Grand Total: </span>
-                    <Text>1677.05</Text>
-                </Box>
-                <Button>
-                    Place Your Order
-                </Button>
+              <span>Shipping Cost: </span>
+              <Text>{ship ? extra : 0}</Text>
             </Box>
+            <Box>
+              <span>Grand Total: </span>
+              <Text>{total + shipping}</Text>
+            </Box>
+           <Link to={"/payment"}>
+           <Button>Place Your Order</Button>
+           </Link>
+          </Box>
         </Box>
       </Box>
       <Box bgColor={"blue.50"} paddingTop={"5"}>
@@ -455,6 +566,7 @@ const OrderSummaryPage = () => {
         </Text>
         {/* <br /> */}
       </Box>
+      <img src="" alt="" />
     </div>
   );
 };
