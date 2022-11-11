@@ -55,7 +55,7 @@ const Home = () => {
               alt=""
             />
             <Box p="2">
-              <Button variant="solid" colorScheme="blue" borderRadius="20">
+              <Button position="static" variant="solid" colorScheme="blue" borderRadius="20">
                 Shop Now
               </Button>
             </Box>
@@ -67,7 +67,7 @@ const Home = () => {
               alt=""
             />
             <Box p="2">
-              <Button variant="solid" colorScheme="blue" borderRadius="20">
+              <Button position="static" variant="solid" colorScheme="blue" borderRadius="20">
                 Shop Now
               </Button>
             </Box>
@@ -79,7 +79,7 @@ const Home = () => {
               alt=""
             />
             <Box p="2">
-              <Button variant="solid" colorScheme="blue" borderRadius="20">
+              <Button position="static" variant="solid" colorScheme="blue" borderRadius="20">
                 Shop Now
               </Button>
             </Box>
@@ -708,9 +708,7 @@ const Home = () => {
       </Box>
 
       <Box w="85%" m="auto" mt="10">
-        <Text textAlign="left" fontWeight="bold" fontSize="27px">
-          Recommended For You
-        </Text>
+        <Text textAlign="left" fontWeight="bold" fontSize="27px">Recommended For You</Text>
         <SimpleGrid columns={[2, 3, 4, 5]} spacing="40px" mt="5">
           <Box border="1px solid rgb(220,220,220)" p="3">
             <Box>
@@ -724,7 +722,7 @@ const Home = () => {
               <Text fontWeight="Bold" mt="1" fontSize="15px">
                 ₹1501.29
               </Text>
-              <Text>₹2000.69</Text>
+              <Text >₹2000.69</Text>
             </Box>
           </Box>
 
@@ -740,7 +738,7 @@ const Home = () => {
               <Text fontWeight="Bold" mt="1" fontSize="15px">
                 ₹2801.29
               </Text>
-              <Text>₹3200.80</Text>
+              <Text >₹3200.80</Text>
             </Box>
           </Box>
 
@@ -756,7 +754,7 @@ const Home = () => {
               <Text fontWeight="Bold" mt="1" fontSize="15px">
                 ₹33101.29
               </Text>
-              <Text>₹43101.29</Text>
+              <Text >₹43101.29</Text>
             </Box>
           </Box>
 
@@ -772,7 +770,7 @@ const Home = () => {
               <Text fontWeight="Bold" mt="1" fontSize="15px">
                 ₹22101.29
               </Text>
-              <Text>₹26101.29</Text>
+              <Text >₹26101.29</Text>
             </Box>
           </Box>
 
@@ -788,7 +786,7 @@ const Home = () => {
               <Text fontWeight="Bold" mt="1" fontSize="15px">
                 ₹1401.99
               </Text>
-              <Text>₹1801.99</Text>
+              <Text >₹1801.99</Text>
             </Box>
           </Box>
         </SimpleGrid>
@@ -853,12 +851,14 @@ const Home = () => {
           </Text>
           <Flex align="center" m="auto" w="200" mt="5" mb="5">
             <Input
+              bg='white'
+              position="static"
               placeholder="Enter email to get 5% off"
               outline="blue"
               borderRightRadius="none"
               borderColor="blue.500"
             />
-            <Button variant="solid" borderLeftRadius="none" colorScheme="blue">
+            <Button position="static" variant="solid" borderLeftRadius="none" colorScheme="blue">
               Subscribe
             </Button>
           </Flex>
