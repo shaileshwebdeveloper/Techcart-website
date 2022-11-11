@@ -16,7 +16,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 
 
-export const New = () => {
+export const NewPage = () => {
 
 
   const [data, setData] = useState([])
