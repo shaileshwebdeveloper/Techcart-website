@@ -7,12 +7,12 @@ import {
   Img,
   Flex,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
-import style from "../component/new.module.css";
+import React, { useEffect, useState } from "react";
+import style from "./new.module.css";
 import { Sidebar } from "./Sidebar";
+import { FilterComp } from "./FilterComp";
 import axios from "axios";
-import { NewFilterComp } from "./NewFilter";
-
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 
 
@@ -20,16 +20,22 @@ export const New = () => {
 
 
   const [data, setData] = useState([])
+  
+
 
   const fetchApi = () => {
-  return   axios.get("http://localhost:3004/products")
+  return   axios.get("https://greekbuying.herokuapp.com/products")
     .then( r => {
       setData(r.data)
     })
     .catch(e => console.log(e))
   }
 
-  fetchApi()
+  useEffect(() => {
+ 
+    fetchApi()
+
+  }, [])
 
 
   return (
@@ -53,7 +59,7 @@ export const New = () => {
 
       <GridItem colSpan={4} rowSpan={1} bg="#fff" boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}
       p="20px">
-           <NewFilterComp/>
+           <FilterComp/>
       </GridItem>
 
 
@@ -66,25 +72,27 @@ export const New = () => {
               key={item.id}
               boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
               style={{ position: "relative", overflow:"hidden" }}
+              // onClick={() => navigate((`/bestselling/${item._id}`))}
             >
                  <div className={`${style.ribbon} ${style.topright} ${style.blue}`}><span>New</span></div>
 
-              <Img src={item.image} />
-              <Text fontSize="md" fontWeight={"300"}>
-                {item.title}
+              <Img src={item.lazy_img_src} />
+              {/* <Text fontSize="md" fontWeight={"300"}> */}
+              <Text fontSize="md" fontWeight={"400"} style={{overflow : "hidden", lineHeight : "1.5rem", height: "3em"}} >
+                {item.items_p}
               </Text>
               <Text fontWeight={"500"} fontSize="2xl">
                 {" "}
-                ₹ {item.price}
+                ₹ {item.items_price}
               </Text>
               <Text fontWeight={"200"} fontSize="sm">
                 {" "}
-                {item.strike !== null ? <s>{item.strike}</s> : ""}{" "}
-                {item.discount !== null ? item.discount : ""}
+                {item.el_price !== null ? <s>{item.el_price}</s> : ""}{" "}
+                {item.items_off !== null ? item.items_off : ""}
               </Text>
               <br />
-              <Flex  style={{position : "absolute", bottom : 0}} gap={["40", "70px", "100px"]}>
-                  <Text color={"grey"}  >♥ {item.ratings}</Text>
+              <Flex  style={{position : "absolute", bottom : 0}} gap={["40", "70px", "75px"]}>
+                  <Text color={"grey"}>♥ {item.favit_count}</Text>
                   <Text color="grey"> Free Shipping</Text>
               </Flex>
             </Box>

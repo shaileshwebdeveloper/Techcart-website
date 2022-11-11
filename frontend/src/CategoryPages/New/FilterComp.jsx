@@ -1,11 +1,12 @@
 import { Flex,Button, Text, Box, Select } from '@chakra-ui/react'
-// import axios from 'axios';
-import React from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 
 
-
-export const NewFilterComp = () => {
+export const FilterComp = () => {
 
   
       
