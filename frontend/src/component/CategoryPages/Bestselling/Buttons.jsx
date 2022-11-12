@@ -2,6 +2,9 @@ import { Button, Stack } from '@chakra-ui/react'
 import React from 'react'
 
 export const Buttons = ({onclick}) => {
+
+    
+
   return (
 <div>
   <Stack direction='row' justifyContent="center" ml={"300px"}>

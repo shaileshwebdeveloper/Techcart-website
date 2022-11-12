@@ -1,9 +1,7 @@
 import { Button } from "@chakra-ui/react";
 
 export const Counter = ({qty, setQty}) => {
-  
-     
-       
+   
 
   return (
     <>

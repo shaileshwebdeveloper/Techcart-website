@@ -8,7 +8,7 @@ import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 export const FilterComp = () => {
 
-  
+
       
    
 
@@ -16,12 +16,12 @@ export const FilterComp = () => {
 
   return (
     <>
-    <Flex justifyContent={"space-between"} width="40%">
+    {/* <Flex justifyContent={"space-between"} width="40%">
     <Text fontWeight="200">New Arrived :</Text>
       <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'>7 days</Button>
       <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'>15 days</Button>
       <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'>30 days</Button>
-    </Flex>
+    </Flex> */}
 
 
     <Flex   mt={"40px"} gap={"20px"}>
@@ -52,12 +52,30 @@ export const FilterComp = () => {
     </Flex>
 
 
-    <Flex justifyContent={"space-between"} width="40%"  mt={"40px"}>
+    <Flex justifyContent={"space-between"} width="60%"  mt={"40px"}>
     <Text fontWeight="200" >Sort By :</Text>
       <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'>Best Match</Button>
       <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'>New Arrival</Button>
-      <Button colorScheme='light grey' fontWeight="400" variant='outline' size='sm'
-       >Price</Button>
+    
+      {/* <input
+          type="radio"
+          value="asc"
+          name="sortBy"
+          defaultChecked={sortBy === "asc"}
+          style={{marginRight : "5px"}}
+        />
+        <label>Low to High</label>
+
+
+        <input
+          type="radio"
+          value="desc"
+          name="sortBy"
+          defaultChecked={sortBy === "desc"}
+          style={{marginRight : "5px", marginBottom : "1rem"}}
+        />
+        <label>High to Low</label> */}
+
     </Flex>
     </>
   )
