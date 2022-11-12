@@ -12,7 +12,8 @@
 }
 
 #logo {
-  height: 50px;
+  height: 60px;
+  
 }
 
 #logosecure {
@@ -31,7 +32,11 @@
   /* border: 1px solid; */
   width: 80%;
   margin: auto;
-  margin-top: 4%;
+  margin-top: 3%;
+}
+
+#product-display h4{
+  font-size: 16px;
 }
 
 #product-tab {
@@ -53,53 +58,119 @@
 }
 
 #product-tab > div:nth-child(1) {
-  width: 50%;
+  width: 70%;
 }
 
 #product-tab > div:nth-child(2) {
-  width: 13%;
+  width: 20%;
 }
 #product-tab > div:nth-child(3) {
-  width: 13%;
+  width: 17%;
 }
 #product-tab > div:nth-child(4) {
-  width: 13%;
+  width: 10%;
 }
 
 #product-tab > div:nth-child(5) {
   width: 13%;
 }
 
-#cont-shop {
+.cart_summary {
   border: 1px solid;
+  height: 310px;
+  padding: 20px 20px 20px 20px;
+  overflow: scroll;
+}
+
+.cartitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* margin-bottom: 20px; */
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* border: 1px solid blue; */
+}
+
+.cartitem > div:nth-child(2) {
+  width: 34%;
+}
+
+.cartitem > div:nth-child(2) p {
+  font-size: 16px;
+}
+
+.cartitem > div:nth-child(3) {
+  width: 8%;
+}
+
+.cartitem > div:nth-child(4) {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.cartitem > div:nth-child(3) p {
+  font-size: 16px;
+}
+.cartitem > div:nth-child(5) p {
+  font-size: 16px;
+}
+
+.cartitem > div {
+  /* border: 1px solid; */
+  padding: 10px;
+  display: block;
+  /* margin: auto; */
+}
+
+.cartitem img {
+  height: 100px;
+}
+
+.cartitem p {
+  font-size: 12px;
+  text-align: left;
+}
+
+.cartitem button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 30px;
+}
+.cartitem button:nth-child(2) {
+  width: 50%;
+}
+
+#cont-shop {
+  /* border: 1px solid; */
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
   text-align: left;
 }
 
 #cont-shop > div:nth-child(1) {
-    grid-area: 1/1/2/2;
+  grid-area: 1/1/2/2;
 }
 
 #cont-shop > div:nth-child(2) {
-    grid-area: 1/3/2/4;
+  grid-area: 1/3/2/4;
 }
 
 #cont-shop > div:nth-child(3) {
-    grid-area: 1/4/2/4;
+  grid-area: 1/4/2/4;
 }
 
 #cont-shop > div:nth-child(4) {
-    grid-area: 1/5/2/8;
+  grid-area: 1/5/2/8;
 }
 
-#cont-shop div {
-  border: 1px solid;
-}
 
-#button-div{
-    display: flex;
-    gap: 10px;
+#button-div {
+  display: flex;
+  gap: 10px;
 }
 
 #payment-buttons {
@@ -171,8 +242,9 @@
   margin-bottom: 30px;
 }
 
-#payment-partners{
-    display: block;
-    margin: auto;
-    margin-bottom: 5px;
+#payment-partners {
+  display: block;
+  margin: auto;
+  margin-bottom: 5px;
 }
+
