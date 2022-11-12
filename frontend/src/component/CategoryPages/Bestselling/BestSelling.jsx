@@ -13,7 +13,7 @@ import {
   import axios from "axios";
 import { Ratings } from "./Ratings";
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { Buttons } from "../../Buttons";
+import { Buttons } from "./Buttons";
   
   
   
@@ -45,8 +45,10 @@ import { Buttons } from "../../Buttons";
     // console.log(data)
 
     useEffect(() => {
+
+      // https://geekbuyingbackend.onrender.com/product?page=1&limit=6
    
-      axios.get(`https://greekbuying.herokuapp.com/products2?_page=${page}&_limit=5`)
+      axios.get(`https://geekbuyingbackend.onrender.com/product2?page=${page}&limit=${12}`)
       .then( r => {
         setData(r.data)
       })
@@ -54,7 +56,7 @@ import { Buttons } from "../../Buttons";
   
     }, [page])
     
-
+  console.log("data", data)
   
   
     return (
@@ -121,6 +123,7 @@ import { Buttons } from "../../Buttons";
         </GridItem>
   
       </Grid>
+
 
       <Buttons onclick = {pageChange}/>
 

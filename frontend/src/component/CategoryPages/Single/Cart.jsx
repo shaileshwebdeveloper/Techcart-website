@@ -6,7 +6,7 @@ export const Cart = ({qty, image, title,price}) => {
 
   return (
     <div>
-
+        
 
     </div>
   )
