@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, Text, Button } from "@chakra-ui/react";
 import CommonHeader from "./CommonHeader";
-import "../css/orderSummary.css";
-import CartItem from "./cartItem";
+import "../../css/orderSummary.css";
+import CartItem from "../cartpage/cartItem";
 import { Link } from "react-router-dom";
 
 const user = {

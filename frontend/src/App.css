@@ -1,7 +1,10 @@
 *{
   font-family: 'Open Sans', sans-serif;
+  /* position : static */
 }
 
 .App {
   text-align: center;
 }
+
+

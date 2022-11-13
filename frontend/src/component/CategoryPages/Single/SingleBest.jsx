@@ -5,19 +5,17 @@ import { Counter } from './Counter'
 import { CopyIcon, DownloadIcon, UnlockIcon } from '@chakra-ui/icons'
 import { Description } from '../DetailReview/Description'
 import { Review } from '../DetailReview/Review'
-import { Cart } from './Cart'
 // import { Ratings } from '../Bestselling/Ratings'
 import { Timer } from '../Bestselling/Timer'
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 // import { json } from 'stream/consumers'
+import Navbar from "../../Navbar"
 
 
 export const SingleBest = () => {
 
    let [qty, setQty] = useState(1);
    const [data, setData] = useState([]);
- 
-   let [cart, setCart] = useState(false);
  
    const [description, setDescription] = useState(true);
    const [review, setReview] = useState(false);
@@ -33,10 +31,14 @@ export const SingleBest = () => {
    };
  
    const params = useParams();
-  const id =  params._id
+  const id =  params.id
+
+  console.log(params.id, "params")
 
 
   const addtocart = () => {
+
+    alert("Products Added To Cart")
 
   fetch(`https://geekbuyingbackend.onrender.com/product2/addtocart`,{
    method : "POST",
@@ -80,7 +82,10 @@ export const SingleBest = () => {
 
 
    return (
+      
       <>
+
+<Navbar/>
         <Grid
           templateRows="repeat(2, 1fr)"
           templateColumns="repeat(3, 1fr)"
@@ -88,11 +93,12 @@ export const SingleBest = () => {
           w="70%"
           h="auto"
           gap="20px"
+          pt="3rem"
         >
           {data.map((item) => (
             <>
               <GridItem rowSpan={2} colSpan={1}>
-                <Box border="1px solid red">
+                <Box >
                   <Img src={item.lazy_img_src} width={"100%"} align="right" />
                 </Box>
               </GridItem>
@@ -227,7 +233,7 @@ export const SingleBest = () => {
   
         <br />
   
-        <Box m="auto" width="80%">
+        <Box m="auto" width="80%" pb="3rem">
           <Flex bg={"#f9f9f9"} p="2rem" m="1rem">
             <Button
               variant="ghost"

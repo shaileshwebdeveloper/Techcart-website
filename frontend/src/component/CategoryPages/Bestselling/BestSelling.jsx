@@ -12,8 +12,9 @@ import {
   import { FilterComp } from "../New/FilterComp";
   import axios from "axios";
 import { Ratings } from "./Ratings";
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { Buttons } from "./Buttons";
+import Navbar from "../../Navbar"
   
   
   
@@ -23,8 +24,8 @@ import { Buttons } from "./Buttons";
   
     const [data, setData] = useState([])
 
-    const [searchParams] =useSearchParams()
-    const location = useLocation();
+    // const [searchParams] =useSearchParams()
+    // const location = useLocation();
     const navigate = useNavigate();
   
     const [page, SetPage] = useState(1)
@@ -62,13 +63,16 @@ import { Buttons } from "./Buttons";
     return (
   
       <>
+         <Navbar />
+
       <Grid
         h="auto"
         w="80%"
         m="auto"
-        templateRows="repeat(13, 1fr)"
+        templateRows="repeat(6, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={4}
+        p="1.5rem 0px"
       >
         <GridItem rowSpan={2} colSpan={1} bg="#ffff">
          <Sidebar/>
@@ -86,26 +90,27 @@ import { Buttons } from "./Buttons";
   
   
   
-        <GridItem colSpan={4} rowSpan={12}  >
-          <SimpleGrid columns={[2,3,4]} spacing={5} p="5px">
+        <GridItem colSpan={4} rowSpan={5}  >
+          <SimpleGrid columns={[2,3,4]} spacing={5} >
             {data.map((item) => (
               <Box
                 key={item.id}
                 boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 style={{ position: "relative", overflow:"hidden" }}
                 onClick={() => navigate((`/bestselling/${item._id}`))}
+                p="5px"
               >
                    {/* <div className={`${style.ribbon} ${style.topright} ${style.blue}`}><span>New</span></div> */}
   
                 <Img src={item.lazy_img_src} />
-                <Text fontSize="md" fontWeight={"400"} style={{overflow : "hidden", lineHeight : "1.5rem", height: "3em"}} >
+                <Text fontSize="md" fontWeight={"400"} style={{overflow : "hidden", lineHeight : "1.5rem", height: "3em"}} align="left">
                  <Img src={"https://img.gkbcdn.com/s3/bn/2211/1111-636b8eaf2b40c926000ab10b.gif"} w="50px" display={"inline"}/> {item.items_p}
                 </Text>
-                <Text fontWeight={"500"} fontSize="2xl">
+                <Text fontWeight={"500"} fontSize="2xl" align="left">
                   {" "}
                   ₹ {item.items_price}
                 </Text>
-                <Text fontWeight={"200"} fontSize="sm">
+                <Text fontWeight={"200"} fontSize="sm" align="left">
                   {" "}
                   {item.del_price !== null ? <s>{item.del_price}</s> : ""}{" "}
                   {item.items_off !== null ? item.items_off : ""}

@@ -6,49 +6,56 @@ import {
   Text,
   Img,
   Flex,
-  Button,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import style from "./new.module.css";
-import { Sidebar } from "./Sidebar";
-import { FilterComp } from "./FilterComp";
+import { Sidebar } from "../New/Sidebar";
+import { FilterComp } from "../New/FilterComp";
 import axios from "axios";
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { getBikes } from "../../../Redux/Bikes/action";
-import { useDispatch, useSelector } from 'react-redux'
+import {  useNavigate } from 'react-router-dom'
+// import { Buttons } from "./Buttons";
+import style from "./new.module.css"
 import { Buttons } from "../Bestselling/Buttons";
-import { SingleNew } from "../Single/SingleNew";
+import Navbar from "../../Navbar"
 
 
 
-export const New = () => {
+export const NewPage = () => {
 
 
   const [data, setData] = useState([])
 
-  let bikes = useSelector((state) => state.BikeReducer.bikes);
-  const [searchParams] =useSearchParams()
-  const dispatch = useDispatch();
-  const location = useLocation();
   const navigate = useNavigate();
-  const [length, setLength] = useState(12)
-  bikes = bikes.slice(0,length);
+
+  const [page, SetPage] = useState(1)
+
+  const pageChange = (e) => {
+    SetPage(e.target.innerText)
+    // console.log(page)
+  }
+
+  // const fetchApi = () => {
+  // return   axios.get(`https://greekbuying.herokuapp.com/products2?_page=${page}&_limit=12`)
+  //   .then( r => {
+  //     setData(r.data)
+  //   })
+  //   .catch(e => console.log(e))
+  // }
+  
+  // console.log(data)
 
   useEffect(() => {
-    if (location || bikes.length === 0) {
-        const sortBy = searchParams.get('sortBy')
-        let getBikesParams = {
-            params: {
-                state: searchParams.getAll('state'),
-                _sort: sortBy && 'price',
-                _order: sortBy,
-                brand: searchParams.getAll('brand')
-            },
-        };
-      dispatch(getBikes(getBikesParams));
-    }
-  }, [location.search, length]);
+
+    // https://geekbuyingbackend.onrender.com/product?page=1&limit=6
+ 
+    axios.get(`https://geekbuyingbackend.onrender.com/product?page=${page}&limit=${12}`)
+    .then( r => {
+      setData(r.data)
+    })
+    .catch(e => console.log(e))
+
+  }, [page])
   
+console.log("data", data)
 
 
 
@@ -56,6 +63,9 @@ export const New = () => {
   return (
 
     <>
+
+    <Navbar/>
+
     <Grid
       h="auto"
       w="80%"
@@ -63,13 +73,11 @@ export const New = () => {
       templateRows="repeat(6, 1fr)"
       templateColumns="repeat(5, 1fr)"
       gap={4}
+      p="1.5rem 0px"
     >
       <GridItem rowSpan={2} colSpan={1} bg="#ffff">
        <Sidebar/>
       </GridItem>
-
-
-
 
 
       <GridItem colSpan={4} rowSpan={1} bg="#fff" boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}
@@ -82,7 +90,7 @@ export const New = () => {
 
       <GridItem colSpan={4} rowSpan={5}  >
         <SimpleGrid columns={[2,3,4]} spacing={5} p="5px">
-          {bikes.map((item) => (
+          {data.map((item) => (
             <Box
               key={item.id}
               boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
@@ -96,18 +104,18 @@ export const New = () => {
               <Text fontSize="md" fontWeight={"400"} style={{overflow : "hidden", lineHeight : "1.5rem", height: "3em"}} >
                 {item.items_p}
               </Text>
-              <Text fontWeight={"500"} fontSize="2xl">
+              <Text fontWeight={"500"} fontSize="2xl" align={"left"} p="5px">
                 {" "}
-                ₹ {item.items_price}
+                 {item.items_price}
               </Text>
-              <Text fontWeight={"200"} fontSize="sm">
+              <Text fontWeight={"200"} fontSize="sm" align={"left"} p="5px">
                 {" "}
                 {item.el_price !== null ? <s>{item.el_price}</s> : ""}{" "}
                 {item.items_off !== null ? item.items_off : ""}
               </Text>
               <br />
-              <Flex  style={{position : "absolute", bottom : 0}} gap={["40", "70px", "75px"]}>
-                  <Text color={"grey"}>♥ {item.favit_count}</Text>
+              <Flex  style={{position : "absolute", bottom : 0}} gap={["40", "50px", "60px"]}>
+                  <Text color={"grey"} p="5px">♥ {item.favit_count}</Text>
                   <Text color="grey"> Free Shipping</Text>
               </Flex>
             </Box>
@@ -120,9 +128,8 @@ export const New = () => {
 
     </Grid>
 
-    <Button colorScheme="teal" variant="outline" margin="auto" mt="1rem" onClick={() => setLength(length + 3)}>
-              {length}
-      </Button>
+    <Buttons onclick = {pageChange}/>
+
 
     </>
   );

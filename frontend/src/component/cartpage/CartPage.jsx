@@ -1,14 +1,15 @@
 import { Box, Text, Button } from "@chakra-ui/react";
 import React from "react";
-import "../css/cartPage.css";
+import "../../css/cartPage.css"
+
 import Carousel from "react-elastic-carousel";
 import CarouselItem from "./CarouselItem";
 import CartItem from "./cartItem";
 // import axios from "axios";
 import {Link} from "react-router-dom"
-import CommonHeader from "./CommonHeader";
+import CommonHeader from "../orderSummary/CommonHeader";
 
-const Cart_page = () => {
+const CartPage = () => {
   // const carousel_data= ()=>{
   //   axios.get("")
   // }
@@ -379,4 +380,4 @@ const Cart_page = () => {
   );
 };
 
-export default Cart_page;
+export default CartPage;

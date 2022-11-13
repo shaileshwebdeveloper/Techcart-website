@@ -1,7 +1,7 @@
 import { Box, Heading, Button, Text } from "@chakra-ui/react";
 import React from "react";
-import CommonHeader from "./CommonHeader";
-import "../css/payment.css";
+import CommonHeader from "../orderSummary/CommonHeader";
+import "../../css/payment.css";
 import { Link } from "react-router-dom";
 
 const PaymentPage = () => {

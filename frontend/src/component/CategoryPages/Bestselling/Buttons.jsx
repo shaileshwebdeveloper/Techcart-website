@@ -7,7 +7,7 @@ export const Buttons = ({onclick}) => {
 
   return (
 <div>
-  <Stack direction='row' justifyContent="center" ml={"300px"}>
+  <Stack direction='row' justifyContent="center" ml={"300px"} pb="1rem">
   <Button  onClick={onclick} colorScheme='grey' variant='outline'  size='sm'  border={"0.2px solid #dddddd" } className = "btn" >
       1
   </Button>

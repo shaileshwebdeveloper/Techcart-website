@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Description = () => {
   return (
-    <Box ml="5%">
+    <Box ml="5%" align="left" alignItems={"left"}>
      <Text fontWeight={"500"}>Highlights</Text>
      <Text>Folding arms, small size, easy to carry.</Text>
      <Text>360° automatic detection of surrounding infrared obstacle avoidance, worry-free flight.</Text>

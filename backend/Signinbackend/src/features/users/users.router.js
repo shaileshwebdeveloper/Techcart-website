@@ -49,8 +49,8 @@ app.post("/login", async (req, res) => {
         if (!user) {
             return res.status(401).send("Authentication error");
         }
-        res.set({
-            token: `${user.id}:${user.email}`
+        localStorage.set({
+            token:`${token} ${user.id}:${user.email}`
         });
         res.cookie("token", `${user.id}:${user.email}`);
         let a = req.cookies;

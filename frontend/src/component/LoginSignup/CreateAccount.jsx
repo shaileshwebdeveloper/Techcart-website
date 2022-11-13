@@ -57,9 +57,9 @@ function CreateAccount() {
     return (
         <div>
             <Box>
-                <Box bg='#1b7dfd' p='25px'>
+               <Link to='/'><Box bg='#1b7dfd' p='25px'>
                     <Image m='auto' w='230px' src={logo} alt='logo' />
-                </Box>
+                </Box></Link>
 
                 <Box
                     backgroundImage="url('https://img.gkbcdn.com/bn/2207/750-62c525372b40c92a04c94f48._p1_.jpg')"

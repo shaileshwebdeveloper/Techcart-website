@@ -14,23 +14,34 @@ import {
   Stack,
   Text,
   Center,
+  Img,
+  Input,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "./LoginSignup/Images/greeklogo.png"
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // const navigate = useNavigate();
+
   return (
-    <Box position="sticky" top="0" w="100%">
+    // position="sticky " style={{ zIndex: "999" }}
+    <Box  top="0" w="100%" style={{ zIndex: "999" }} >
       <Box
-        bg="rgb(43,138,251)"
+        bg="#1b7dfd"
         px={4}
         borderBottom="1px solid rgb(242,242,242)"
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box color="white" fontWeight="bold">
-            Logo
+          <Link to="/">
+          <Box color="white" fontWeight="bold" w={['120px','150px']}>
+            <Img src={logo} />
           </Box>
+          </Link>
+
+          <Input mr={{sm:'0px',md:'200px',lg:'700px'}} placeholder="Search Products" w={{sm:'80px',md:'320px',lg:'450px'}} bg="white"/>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
@@ -74,10 +85,10 @@ export default function Simple() {
           </Flex>
         </Flex>
       </Box>
-      <Box bg="rgb(43,138,251)" px={4}>
+      <Box bg="#1b7dfd" px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
-            bg="rgb(43,138,251)"
+            bg="#1b7dfd"
             color="white"
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -94,8 +105,8 @@ export default function Simple() {
               fontWeight="bold"
             >
               <Text>Categories</Text>
-              <Text>New</Text>
-              <Text>Bestselling</Text>
+              <Link to="/new"><Text>New</Text></Link>
+              <Link to="/bestselling"><Text>Bestselling</Text></Link>
               <Text>Brand</Text>
               <Text>Clearance</Text>
               <Text>Deals</Text>
@@ -104,20 +115,24 @@ export default function Simple() {
             </HStack>
           </HStack>
           <HStack spacing="4">
+            <Link to="/create">
             <Text color="white" fontWeight="bold">
               Signup
             </Text>
+            </Link>
+            <Link to="/signin">
             <Text color="white" fontWeight="bold">
               Login
             </Text>
+            </Link>
           </HStack>
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4} color="white" fontWeight="bold">
-              <Text>New</Text>
-              <Text>Bestselling</Text>
+             <Text>New</Text>
+             <Text>Bestselling</Text>
               <Text>Brand</Text>
               <Text>Clearance</Text>
               <Text>Deals</Text>

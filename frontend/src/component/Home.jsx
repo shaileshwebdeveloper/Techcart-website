@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import Navbar from "./Navbar"
 
 const Home = () => {
   const Feature = ({ title, text, icon }) => {
@@ -40,6 +41,8 @@ const Home = () => {
   };
   return (
     <>
+          <Navbar />
+
       <Box w="85%" m="auto" mt="10">
         <Flex gap="5" alignItems="baseline" textAlign="left">
           <Text fontWeight="bold" fontSize="27px">
