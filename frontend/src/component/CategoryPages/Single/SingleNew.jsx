@@ -15,6 +15,7 @@ export const SingleNew = () => {
 
    let [qty, setQty] = useState(1);
    const [data, setData] = useState([]);
+   const navigate = useNavigate()
  
  
    const [description, setDescription] = useState(true);
@@ -38,23 +39,30 @@ export const SingleNew = () => {
 
   const addtocart = () => {
 
-  fetch(`https://geekbuyingbackend.onrender.com/product1/addtocart`,{
-   method : "POST",
-   body : JSON.stringify(data), 
-   headers : {
-      "Content-Type" : "application/json",
-      "Authorization" : `Bearer ${localStorage.getItem("token")}`
-   }
-  })
-  .then((r) => {
-       r.json()
-  })
-  .then((r) => {
-     alert(r)
-  })
-  .catch((e) => {
-    console.log(e)
-  })
+
+    alert("Products Added To Cart")
+
+    setTimeout(() => {
+      navigate("/cart")
+    }, 2000);
+
+  // fetch(`https://geekbuyingbackend.onrender.com/product1/addtocart`,{
+  //  method : "POST",
+  //  body : JSON.stringify(data), 
+  //  headers : {
+  //     "Content-Type" : "application/json",
+  //     "Authorization" : `Bearer ${localStorage.getItem("token")}`
+  //  }
+  // })
+  // .then((r) => {
+  //      r.json()
+  // })
+  // .then((r) => {
+  //    alert(r)
+  // })
+  // .catch((e) => {
+  //   console.log(e)
+  // })
    
 
 }
@@ -203,7 +211,7 @@ export const SingleNew = () => {
                       Add to Cart
                     </Button>
                     
-                    <Button colorScheme="blue" size="lg">
+                    <Button colorScheme="blue" size="lg" onClick={() => navigate("/order")}>
                       Buy Now
                     </Button>
                   </Flex>

@@ -19,6 +19,7 @@ const user = {
 
 const OrderSummaryPage = () => {
   const [userData, setUserData] = useState(user);
+  const [count, setCount] = useState(1);
 
   const [ship,setShip] = useState(false);
 
@@ -46,7 +47,7 @@ const OrderSummaryPage = () => {
   // extra shipping charges
   const extra = 4793.71;
   const remote= 3104.09
-  const total= 1677.05
+  // const total= 1677.05
 
   let shipping = 0
   if(ship){
@@ -464,7 +465,37 @@ const OrderSummaryPage = () => {
           </Text>
           <br />
           <Box border={"1px solid silver"}>
-            <CartItem />
+          <Box display={"flex"}>
+        <input type="checkbox" />
+        <Box className="cartitem">
+        <Box>
+          <img
+            src="https://img.gkbcdn.com/p/2022-05-30/3-5-Inch-IPS-TYPE-C-Secondary-Screen-CPU-GPU-RAM-HDD-Monitoring-501430-0._w280_.jpg"
+            alt=""
+          />
+        </Box>
+        <Box>
+          <Text>
+          Lenovo R1 Smartwatch 1.3'' TFT Screen 7 Sport Modes, Sleeping & Heart Rate Monitor, DIY Design Watch, IP68 Waterproof - Grey
+          </Text>
+        </Box>
+
+        <Box><Text>4865.02</Text></Box>
+        <Box display={"flex"}>
+          <Button onClick={()=> setCount(count-1)} disabled={count === 0}> - </Button>
+          <Button>{count}</Button>
+          <Button onClick={()=> setCount(count+1)} disabled={count === 10}> + </Button>
+        </Box>
+        <Box>
+          <Text>{(4865.02 * count).toFixed(2)}</Text>
+        </Box>
+        <Box>
+        <Text>🗑</Text>
+        </Box>
+            
+        </Box>
+        {/* <CartPage count={count}/> */}
+      </Box>
           </Box>
           <br />
           <Box>
@@ -539,7 +570,7 @@ const OrderSummaryPage = () => {
           <Box>
             <Box>
               <span>Order SubTotal: </span>
-              <Text>{total}</Text>
+              <Text>{(4865.02 * count).toFixed(2)}</Text>
             </Box>
             <Box>
               <span>Shipping Cost: </span>
@@ -547,7 +578,7 @@ const OrderSummaryPage = () => {
             </Box>
             <Box>
               <span>Grand Total: </span>
-              <Text>{total + shipping}</Text>
+              <Text>{(4865.02 * count).toFixed(2)}</Text>
             </Box>
            <Link to={"/payment"}>
            <Button>Place Your Order</Button>

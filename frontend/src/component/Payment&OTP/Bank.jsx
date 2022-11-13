@@ -1,7 +1,7 @@
 import { Box, Input,Button } from "@chakra-ui/react";
 import React, { useState } from "react";
-import CommonHeader from "./CommonHeader";
-import "../css/bank.css";
+import CommonHeader from "../orderSummary/CommonHeader";
+import "../../css/bank.css";
 import PinInput from "react-pin-input";
 import { Link } from "react-router-dom";
 
@@ -47,7 +47,7 @@ const Bank = () => {
   return (
     <div>
       <CommonHeader />
-      <Box>
+      <Box border="1px solid red">
         <img
           className="bank_bg"
           src="https://www.purpleno.in/wp-content/uploads/2019/07/payment-gateway.jpg"
@@ -108,7 +108,7 @@ const Bank = () => {
       </Box>
 
       {otp && (
-        <Box className={"otp"}>
+        <Box className={"otp"} >
           <label htmlFor="">Enter O.T.P :</label>
           <PinInput
             length={4}

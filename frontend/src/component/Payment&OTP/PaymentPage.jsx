@@ -62,13 +62,13 @@ const PaymentPage = () => {
             </Box>
             <Box>
               <Text>Grand Total: </Text>
-              <Text fontWeight={"bold"}>1677.05</Text>
+              <Text fontWeight={"bold"}>9730.04</Text>
             </Box>
             <hr />
             <Box>
               <Text>Payable Amount:</Text>
               <Text fontWeight={"bold"} color={"red.500"}>
-                1677.05
+              9730.04
               </Text>
             </Box>
             <br />

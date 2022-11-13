@@ -1,5 +1,5 @@
 import { Box, Text, Button } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import "../../css/cartPage.css"
 
 import Carousel from "react-elastic-carousel";
@@ -13,6 +13,8 @@ const CartPage = () => {
   // const carousel_data= ()=>{
   //   axios.get("")
   // }
+
+  const [count, setCount] = useState(1);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -282,12 +284,47 @@ const CartPage = () => {
         </Box>
         <Box className="cart_summary">
           {/* Mapping the Cart Data */}
-          <CartItem />
+          {/* <CartItem /> */}
           {/* <CartItem />
           <CartItem />
           <CartItem />
           <CartItem />
           <CartItem /> */}
+
+<Box display={"flex"}>
+        <input type="checkbox" />
+        <Box className="cartitem">
+        <Box>
+          <img
+            src="https://img.gkbcdn.com/p/2022-05-30/3-5-Inch-IPS-TYPE-C-Secondary-Screen-CPU-GPU-RAM-HDD-Monitoring-501430-0._w280_.jpg"
+            alt=""
+          />
+        </Box>
+        <Box>
+          <Text>
+          Lenovo R1 Smartwatch 1.3'' TFT Screen 7 Sport Modes, Sleeping & Heart Rate Monitor, DIY Design Watch, IP68 Waterproof - Grey
+          </Text>
+        </Box>
+
+        <Box><Text>4865.02</Text></Box>
+        <Box display={"flex"}>
+          <Button onClick={()=> setCount(count-1)} disabled={count === 0}> - </Button>
+          <Button>{count}</Button>
+          <Button onClick={()=> setCount(count+1)} disabled={count === 10}> + </Button>
+        </Box>
+        <Box>
+          <Text>{(4865.02 * count).toFixed(2)}</Text>
+        </Box>
+        <Box>
+        <Text>🗑</Text>
+        </Box>
+            
+        </Box>
+        {/* <CartPage count={count}/> */}
+      </Box>
+
+
+
         </Box>
         <Box paddingLeft={"1%"} marginBottom={"5px"} marginTop={"5px"} paddingRight={"5%"} height={"50px"} width="100%" display={"flex"} justifyContent={"space-between"} >
           <Box width={"12%"} alignItems="center" justifyContent={"space-around"} display={"flex"}>
@@ -296,7 +333,7 @@ const CartPage = () => {
           </Box>
           <Box width={"20%"} alignItems="center" justifyContent={"space-around"} display={"flex"}>
             <Text  fontWeight={"bold"}>Your SubTotal: </Text>
-            <Text fontWeight={"bold"} color={"orangeRed"}> $ 9999</Text>
+            <Text fontWeight={"bold"} color={"orangeRed"}>{(4865.02 * count).toFixed(2)}</Text>
           </Box>
         </Box>
         {/*  */}
@@ -310,7 +347,7 @@ const CartPage = () => {
           </Box>
           <Box>
             
-            <Text fontSize={"30px"} paddingBottom="10px" paddingRight={"10px"} textAlign={"center"}>Total : ₹ 0.00</Text>
+            <Text fontSize={"30px"} paddingBottom="10px" paddingRight={"10px"} textAlign={"center"} color={"orangeRed"}>Total : ₹ {(4865.02 * count).toFixed(2)}</Text>
           </Box>
           <Box>
             <Box id="button-div">

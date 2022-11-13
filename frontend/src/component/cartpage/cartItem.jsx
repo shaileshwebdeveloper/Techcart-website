@@ -1,6 +1,7 @@
 import { Box, Text, Button } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import CartPage from "./CartPage";
 
 const CartItem = () => {
     
@@ -19,25 +20,25 @@ const CartItem = () => {
         </Box>
         <Box>
           <Text>
-            3.5 Inch IPS TYPE-C Secondary Screen CPU GPU RAM HDD Monitoring USB
-            Display
+          Lenovo R1 Smartwatch 1.3'' TFT Screen 7 Sport Modes, Sleeping & Heart Rate Monitor, DIY Design Watch, IP68 Waterproof - Grey
           </Text>
         </Box>
 
-        <Box><Text>1928.73</Text></Box>
+        <Box><Text>4865.02</Text></Box>
         <Box display={"flex"}>
           <Button onClick={()=> setCount(count-1)} disabled={count === 0}> - </Button>
           <Button>{count}</Button>
           <Button onClick={()=> setCount(count+1)} disabled={count === 10}> + </Button>
         </Box>
         <Box>
-          <Text>{(1928.73 * count).toFixed(2)}</Text>
+          <Text>{(4865.02 * count).toFixed(2)}</Text>
         </Box>
         <Box>
         <Text>🗑</Text>
         </Box>
             
         </Box>
+        {/* <CartPage count={count}/> */}
       </Box>
     </div>
   );

@@ -1,7 +1,8 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, Img, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../css/cartPage.css"
+import logo from "../LoginSignup/Images/greeklogo.png"
 
  const CommonHeader = () => {
   return (
@@ -9,9 +10,9 @@ import "../../css/cartPage.css"
         <Box id="blue-banner">
         <Box id="logosecure">
           <Link to="/">
-            <img
+            <Img
               id="logo"
-              src="https://content1.geekbuying.com/V1.4/en/images/indexV7/Geekbuying.png"
+              src={logo}
               alt=""
             />
           </Link>

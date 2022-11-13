@@ -7,7 +7,7 @@ import { Description } from '../DetailReview/Description'
 import { Review } from '../DetailReview/Review'
 // import { Ratings } from '../Bestselling/Ratings'
 import { Timer } from '../Bestselling/Timer'
-import {  useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 // import { json } from 'stream/consumers'
 import Navbar from "../../Navbar"
 
@@ -16,6 +16,7 @@ export const SingleBest = () => {
 
    let [qty, setQty] = useState(1);
    const [data, setData] = useState([]);
+   const navigate = useNavigate()
  
    const [description, setDescription] = useState(true);
    const [review, setReview] = useState(false);
@@ -40,23 +41,28 @@ export const SingleBest = () => {
 
     alert("Products Added To Cart")
 
-  fetch(`https://geekbuyingbackend.onrender.com/product2/addtocart`,{
-   method : "POST",
-   body : JSON.stringify(data), 
-   headers : {
-      "Content-Type" : "application/json",
-      "Authorization" : `Bearer ${localStorage.getItem("token")}`
-   }
-  })
-  .then((r) => {
-       r.json()
-  })
-  .then((r) => {
-     alert(r)
-  })
-  .catch((e) => {
-    console.log(e)
-  })
+    setTimeout(() => {
+      navigate("/cart")
+    }, 2000);
+
+
+  // fetch(`https://geekbuyingbackend.onrender.com/product2/addtocart`,{
+  //  method : "POST",
+  //  body : JSON.stringify(data), 
+  //  headers : {
+  //     "Content-Type" : "application/json",
+  //     "Authorization" : `Bearer ${localStorage.getItem("token")}`
+  //  }
+  // })
+  // .then((r) => {
+  //      r.json()
+  // })
+  // .then((r) => {
+  //    alert(r)
+  // })
+  // .catch((e) => {
+  //   console.log(e)
+  // })
    
 
 }
@@ -77,7 +83,7 @@ export const SingleBest = () => {
     }, [id]);
 
 
-    console.log("data", data)
+    // console.log("data", data)
 
 
 
@@ -207,7 +213,7 @@ export const SingleBest = () => {
                       Add to Cart
                     </Button>
                     
-                    <Button colorScheme="blue" size="lg">
+                    <Button colorScheme="blue" size="lg" onClick={() => navigate("/order")}>
                       Buy Now
                     </Button>
                   </Flex>

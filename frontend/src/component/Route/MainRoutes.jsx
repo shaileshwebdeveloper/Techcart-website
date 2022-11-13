@@ -11,6 +11,7 @@ import Signin from "../LoginSignup/Signin";
 import OrderSummaryPage from "../orderSummary/OrderSummaryPage";
 import PaymentPage from "../Payment&OTP/PaymentPage";
 import Bank from "../Payment&OTP/Bank";
+import End from "../End";
 
 
 export const MainRoutes = () => {
@@ -24,6 +25,7 @@ export const MainRoutes = () => {
         <Route path="/order" element={<OrderSummaryPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/bank" element={<Bank/>} />
+        <Route path="/end" element={<End/>} />
 
         <Route path="/new" element={<NewPage />} />
         <Route path="/new/:id" element={<SingleNew/>} />

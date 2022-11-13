@@ -1,30 +1,53 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
-import React from 'react'
-import CommonHeader from './CommonHeader'
+import { Box, Heading, Img, Text } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import CommonHeader from "./orderSummary/CommonHeader";
+import "../css/bank.css"
+import { useNavigate } from "react-router-dom";
 
 const End = () => {
+  const [img, setImg] = useState(
+    "https://cdn.dribbble.com/users/447957/screenshots/6899626/payment-animation.gif"
+  );
+  const [process, FinishProcess] = useState("Processing, Please Wait...");
+  const [redirect, setRedirect] = useState("");
+  // let [seconds,setSeconds] = useState(3)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setImg(
+        "https://www.kernelios.com/wp-content/uploads/2018/07/successgif.gif"
+      );
+      FinishProcess("Payment successful..!!");
+      // setSeconds(second)
+      setRedirect(`Redirecting to 🏠`)
+
+    }, 4000);
 
 
-    const pay_succ= ()=>{
+    setTimeout(() => {
+      navigate("/")
+    }, 6000)
 
-        setInterval(()=>{
-            
-        },3000)
+    //  navigate("/")
 
-    }
-
+  },[])
 
   return (
     <div>
-        <CommonHeader/>
+      <CommonHeader />
+      <Box className="end">
+        <Img id="loading" src={img} alt="" m="auto"/>
+        <Heading size={"lg"}>{process} </Heading>
         <br />
-        <br />
-        <Box onLoad={pay_succ}>
-            <img src="https://www.kernelios.com/wp-content/uploads/2018/07/successgif.gif" alt="" />
-            <Heading>Payment Successful...</Heading>
-        </Box>
+      <Text>{redirect}</Text>
+      </Box>
+      
     </div>
-  )
-}
+  );
+};
 
-export default End
+export default End;
