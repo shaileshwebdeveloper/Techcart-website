@@ -10,7 +10,7 @@ import CreateAccount from "../LoginSignup/CreateAccount";
 import Signin from "../LoginSignup/Signin";
 import OrderSummaryPage from "../orderSummary/OrderSummaryPage";
 import PaymentPage from "../Payment&OTP/PaymentPage";
-
+import Bank from "../Payment&OTP/Bank";
 
 
 export const MainRoutes = () => {
@@ -23,7 +23,7 @@ export const MainRoutes = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/order" element={<OrderSummaryPage />} />
         <Route path="/payment" element={<PaymentPage />} />
-        {/* <Route path="/bank" element={<Bank/>} /> */}
+        <Route path="/bank" element={<Bank/>} />
 
         <Route path="/new" element={<NewPage />} />
         <Route path="/new/:id" element={<SingleNew/>} />
