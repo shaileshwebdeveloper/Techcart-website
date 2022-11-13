@@ -46,7 +46,7 @@ function Signin() {
         setLogin(true);
         setTimeout(() => {
           setLogin(false);
-          navigate("/cart");
+          navigate("/");
         }, 3000);
       })
       .catch((err) => {
