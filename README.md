@@ -1,10 +1,10 @@
-# Techkart Website
+# Techcart Website
 
 ![image](https://user-images.githubusercontent.com/91751062/202104887-c495ea37-1176-4847-8f86-21077cddc6bf.png) 
 
 What is this? ☝️ 
 
-</br> Techkart is leading E-commerce platforms selling a wide range of consumer electronic gadgets. Anyone can buy product from the techkart with fast global shipping! This was a collabartive project with 5 team members successfully completed in 5 days. 
+</br> Techcart is leading E-commerce platforms selling a wide range of consumer electronic gadgets. Anyone can buy product from the techkart with fast global shipping! This was a collabartive project with 5 team members successfully completed in 5 days. 
 
 </br> 
 
