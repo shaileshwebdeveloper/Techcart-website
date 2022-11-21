@@ -60,4 +60,4 @@ What is this? ☝️
 
 
 
-# Demo Link ➡  https://tech-cart.vercel.app/
+# Demo Link ➡  https://tech-cart-frontend.vercel.app/
